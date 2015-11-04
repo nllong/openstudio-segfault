@@ -21,8 +21,9 @@ threads = []
 # threads.each(&:join)
 
 
-Parallel.each((1..64), in_processes: 4) do |i|
-  threads << Thread.new do
+#Parallel.each((1..64), in_processes: 4) do |i|
+(1..6000).each do |i|
+  #threads << Thread.new do
     # puts Time.new.class
     #puts OpenStudio::DateTime.new.class
     require_relative 'stupid_measure'
@@ -31,6 +32,7 @@ Parallel.each((1..64), in_processes: 4) do |i|
     puts a.call_me_now(i)
 
     #fail "NOT OPENSTUDIO CLASS" unless period_end_date === OpenStudio::Date
-  end
+  #end
 end
-threads.each(&:join)
+
+#threads.each(&:join)
